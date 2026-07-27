@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPI PAI Kelas 12: Pernikahan dalam Islam</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                        },
+                        accent: {
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); }
+        .tab-btn.active {
+            background-color: #059669;
+            color: white;
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.25);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between">
+
+    <!-- Header / Nav -->
+    <header class="sticky top-0 z-50 glass border-b border-emerald-100 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-3">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center text-white font-bold text-xl shadow-md">
+                    <i class="fa-solid fa-heart-circle-check"></i>
+                </div>
+                <div>
+                    <h1 class="font-extrabold text-slate-800 text-base md:text-lg leading-tight">MPI PAI Kelas XII SMA</h1>
+                    <p class="text-xs text-emerald-600 font-semibold">PAI • Pak Alwi Mushthofa, M.Pd. (SMA Negeri 1 Depok)</p>
+                </div>
+            </div>
+
+            <!-- Navigation Tabs -->
+            <nav class="flex flex-wrap gap-1 md:gap-2 bg-slate-100 p-1.5 rounded-2xl text-xs md:text-sm font-semibold text-slate-600 items-center">
+                <button onclick="switchTab('beranda')" id="btn-beranda" class="tab-btn active px-3 md:px-4 py-2 rounded-xl transition-all">
+                    <i class="fa-solid fa-house mr-1"></i> Beranda
+                </button>
+                <button onclick="switchTab('materi')" id="btn-materi" class="tab-btn px-3 md:px-4 py-2 rounded-xl transition-all">
+                    <i class="fa-solid fa-book-open mr-1"></i> Materi
+                </button>
+                <button onclick="switchTab('aktifitas')" id="btn-aktifitas" class="tab-btn px-3 md:px-4 py-2 rounded-xl transition-all">
+                    <i class="fa-solid fa-comments mr-1"></i> Aktifitas
+                </button>
+                <button onclick="switchTab('simulasi')" id="btn-simulasi" class="tab-btn px-3 md:px-4 py-2 rounded-xl transition-all">
+                    <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> Simulasi
+                </button>
+                <button onclick="switchTab('kuis')" id="btn-kuis" class="tab-btn px-3 md:px-4 py-2 rounded-xl transition-all">
+                    <i class="fa-solid fa-pen-to-square mr-1"></i> Kuis (10)
+                </button>
+
+                <!-- Global Audio Controls -->
+                <div class="flex items-center gap-1 bg-emerald-50 px-2 py-1 rounded-xl border border-emerald-200 ml-auto md:ml-2">
+                    <button onclick="toggleAudioBGM()" id="btn-bgm" title="Putar Musik Latar" class="w-7 h-7 rounded-lg bg-emerald-600 text-white flex items-center justify-center hover:bg-emerald-700 transition text-xs">
+                        <i class="fa-solid fa-music"></i>
+                    </button>
+                    <button onclick="stopSpeech()" id="btn-stop-audio" title="Hentikan Suara Narasi" class="w-7 h-7 rounded-lg bg-rose-500 text-white flex items-center justify-center hover:bg-rose-600 transition text-xs">
+                        <i class="fa-solid fa-volume-xmark"></i>
+                    </button>
+                    <span id="audio-status" class="text-[10px] font-bold text-emerald-800 px-1 hidden md:inline">Audio Aktif</span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-6xl mx-auto px-4 py-6 flex-grow w-full">
+
+        <!-- TAB 1: BERANDA -->
+        <section id="tab-beranda" class="space-y-6">
+            <!-- Hero Card -->
+            <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-emerald-800 via-emerald-700 to-teal-800 text-white p-6 md:p-10 shadow-xl">
+                <div class="relative z-10 max-w-2xl">
+                    <span class="inline-block px-3 py-1 bg-amber-400 text-emerald-950 text-xs font-bold rounded-full mb-3 shadow">
+                        <i class="fa-solid fa-star mr-1"></i> Kurikulum Merdeka - PAI SMA Kelas 12
+                    </span>
+                    <h2 class="text-2xl md:text-4xl font-extrabold leading-tight mb-3">
+                        Indahnya Pernikahan dalam Islam: Membangun Generasi Sakinah
+                    </h2>
+                    <p class="text-emerald-100 text-sm md:text-base mb-6 leading-relaxed">
+                        Sugeng rawuh! Mari pelajari ketentuan fiqih pernikahan dalam Islam dengan cara yang interaktif, kontekstual, dan dilengkapi audio penjelasan!
+                    </p>
+                    <div class="flex flex-wrap gap-3">
+                        <button onclick="switchTab('materi')" class="bg-amber-400 hover:bg-amber-300 text-emerald-950 font-bold px-5 py-2.5 rounded-xl transition shadow-lg text-sm flex items-center">
+                            Mulai Belajar Materi <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </button>
+                        <button onclick="switchTab('simulasi')" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-5 py-2.5 rounded-xl transition text-sm border border-white/20">
+                            Coba Simulasi Ijab Kabul
+                        </button>
+                        <button onclick="speakText('Selamat datang di Media Pembelajaran Interaktif PAI SMA Kelas 12 SMA Negeri 1 Depok disajikan oleh Pak Alwi Mushthofa M.Pd.')" class="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-4 py-2.5 rounded-xl transition text-sm border border-emerald-400/30 flex items-center">
+                            <i class="fa-solid fa-volume-high mr-2"></i> Audio Sambutan
+                        </button>
+                    </div>
+                </div>
+                <!-- Graphic Overlay -->
+                <div class="absolute right-0 bottom-0 opacity-20 pointer-events-none p-6 hidden md:block">
+                    <i class="fa-solid fa-hands-holding-child text-[200px]"></i>
+                </div>
+            </div>
+
+            <!-- Teacher Greeting -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col md:flex-row items-center gap-6">
+                <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=300&auto=format&fit=crop&q=80" alt="Guru PAI Pak Alwi Mushthofa" class="w-24 h-24 rounded-2xl object-cover shadow border-2 border-emerald-500">
+                <div class="space-y-2 text-center md:text-left flex-1">
+                    <div class="flex flex-wrap items-center justify-center md:justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                            <h3 class="font-bold text-slate-800 text-lg">Pesan dari Pak Alwi Mushthofa, M.Pd.</h3>
+                            <span class="bg-emerald-100 text-emerald-800 text-xs px-2 py-0.5 rounded-md font-semibold">Guru PAI SMA Negeri 1 Depok</span>
+                        </div>
+                        <button onclick="speakText('Assalamu alaikum wa rahmatullahi wa barakatuh. Anak-anakku kelas 12 SMA Negeri 1 Depok yang membanggakan. Pernikahan dalam Islam bukan sekadar ikatan emosional atau perayaan pesta, melainkan ibadah terlama dan perjanjian yang sangat kokoh. Mari pahami ilmu fiqihnya agar kalian siap menjadi pribadi yang berakhlak mulia!')" class="text-xs bg-emerald-600 text-white px-3 py-1.5 rounded-lg hover:bg-emerald-700 transition flex items-center gap-1">
+                            <i class="fa-solid fa-volume-high"></i> Putar Suara Guru
+                        </button>
+                    </div>
+                    <p class="text-slate-600 text-sm italic">
+                        "Assalamu'alaikum wr. wb. Anak-anakku kelas 12 SMA Negeri 1 Depok yang membanggakan. Pernikahan dalam Islam bukan sekadar ikatan emosional atau perayaan pesta, melainkan ibadah terlama dan perjanjian yang sangat kokoh (*Mithaqan Ghalizhan*). Mari pahami ilmu fiqihnya agar kalian siap menjadi pribadi yang berakhlak mulia!"
+                    </p>
+                </div>
+            </div>
+
+            <!-- Competency / Objectives -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-emerald-50 p-5 rounded-2xl border border-emerald-100">
+                    <div class="w-10 h-10 bg-emerald-600 text-white rounded-xl flex items-center justify-center mb-3 font-bold">1</div>
+                    <h4 class="font-bold text-slate-800 mb-1">Memahami Syarat & Rukun</h4>
+                    <p class="text-xs text-slate-600">Mampu menganalisis syarat keabsahan nikah, rukun nikah, dan mahram dalam fiqih Islam.</p>
+                </div>
+                <div class="bg-amber-50 p-5 rounded-2xl border border-amber-100">
+                    <div class="w-10 h-10 bg-amber-500 text-white rounded-xl flex items-center justify-center mb-3 font-bold">2</div>
+                    <h4 class="font-bold text-slate-800 mb-1">Hukum Pernikahan & UU RI</h4>
+                    <p class="text-xs text-slate-600">Mengetahui variasi hukum nikah serta regulasi batas usia nikah berdasarkan UU No. 16/2019.</p>
+                </div>
+                <div class="bg-teal-50 p-5 rounded-2xl border border-teal-100">
+                    <div class="w-10 h-10 bg-teal-600 text-white rounded-xl flex items-center justify-center mb-3 font-bold">3</div>
+                    <h4 class="font-bold text-slate-800 mb-1">Kesiapan Lahir Batin</h4>
+                    <p class="text-xs text-slate-600">Refleksi pribadi mengenai pentingnya kesiapan usia, psikologis, ilmu, dan ekonomi sebelum menikah.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 2: MATERI -->
+        <section id="tab-materi" class="hidden space-y-6">
+            <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100">
+                <div class="flex flex-wrap items-center justify-between mb-6 gap-2">
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-800">Modul Ringkas Pernikahan dalam Islam</h2>
+                        <p class="text-xs text-slate-500">Klik modul di bawah untuk membaca & mendengarkan audio penjelasan fiqih</p>
+                    </div>
+                    <span class="text-xs bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full font-bold">Kelas 12 SMA</span>
+                </div>
+
+                <!-- Material Cards / Accordions -->
+                <div class="space-y-4">
+                    <!-- Modul 1 -->
+                    <details class="group bg-slate-50 p-4 rounded-2xl border border-slate-200" open>
+                        <summary class="font-bold text-slate-800 cursor-pointer flex justify-between items-center">
+                            <span><i class="fa-solid fa-scale-balanced text-emerald-600 mr-2"></i> 1. Pengertian & Hukum Pernikahan</span>
+                            <div class="flex items-center gap-2">
+                                <button type="button" onclick="event.stopPropagation(); speakText('Modul 1. Pengertian dan Hukum Pernikahan. Nikah secara bahasa berarti berkumpul atau menyatu. Secara istilah syariat, nikah adalah akad yang menghalalkan pergaulan antara laki-laki dan perempuan yang bukan mahram hingga menimbulkan hak dan kewajiban. Hukum nikah dibagi 5 yaitu mubah, sunnah, wajib, makruh, dan haram.')" class="text-xs bg-emerald-600 hover:bg-emerald-700 text-white px-2.5 py-1 rounded-lg transition flex items-center gap-1 font-normal">
+                                    <i class="fa-solid fa-volume-high"></i> Audio
+                                </button>
+                                <i class="fa-solid fa-chevron-down group-open:rotate-180 transition"></i>
+                            </div>
+                        </summary>
+                        <div class="mt-3 text-sm text-slate-600 leading-relaxed space-y-2 border-t border-slate-200 pt-3">
+                            <p><strong>Pengertian:</strong> Nikah secara bahasa berarti berkumpul/menyatu. Secara istilah syariat, nikah adalah akad yang menghalalkan pergaulan antara laki-laki dan perempuan yang bukan mahram hingga menimbulkan hak dan kewajiban.</p>
+                            <p><strong>5 Variasi Hukum Nikah:</strong></p>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li><strong class="text-emerald-700">Mubah (Asal):</strong> Hukum dasar nikah bagi siapa saja yang mampu dan tidak mengkhawatirkan zina.</li>
+                                <li><strong class="text-emerald-700">Sunnah:</strong> Mampu secara finansial/fisik dan berkeinginan menikah, tetapi masih sanggup menahan diri dari zina.</li>
+                                <li><strong class="text-emerald-700">Wajib:</strong> Sudah mampu secara fisik & finansial, dan sangat khawatir akan terjerumus dalam perbuatan zina jika tidak menikah.</li>
+                                <li><strong class="text-emerald-700">Makruh:</strong> Mampu secara fisik namun belum memiliki kemampuan memberi nafkah lahir/batin secara layak.</li>
+                                <li><strong class="text-emerald-700">Haram:</strong> Menikah dengan niat menyakiti, menzalimi, atau menelantarkan pasangannya.</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <!-- Modul 2 -->
+                    <details class="group bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                        <summary class="font-bold text-slate-800 cursor-pointer flex justify-between items-center">
+                            <span><i class="fa-solid fa-list-check text-emerald-600 mr-2"></i> 2. Rukun & Syarat Sah Nikah</span>
+                            <div class="flex items-center gap-2">
+                                <button type="button" onclick="event.stopPropagation(); speakText('Modul 2. Rukun dan Syarat Sah Nikah. Rukun nikah ada 5 yaitu: 1. Calon Suami, 2. Calon Istri, 3. Wali Nikah pihak wanita, 4. Dua orang saksi laki-laki yang adil, dan 5. Ijab Kabul dalam satu majelis.')" class="text-xs bg-emerald-600 hover:bg-emerald-700 text-white px-2.5 py-1 rounded-lg transition flex items-center gap-1 font-normal">
+                                    <i class="fa-solid fa-volume-high"></i> Audio
+                                </button>
+                                <i class="fa-solid fa-chevron-down group-open:rotate-180 transition"></i>
+                            </div>
+                        </summary>
+                        <div class="mt-3 text-sm text-slate-600 leading-relaxed border-t border-slate-200 pt-3">
+                            <p class="mb-2">Agar pernikahan sah secara syariat Islam, wajib memenuhi 5 Rukun Nikah berikut:</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                <div class="p-3 bg-white rounded-xl border border-slate-200">
+                                    <h5 class="font-bold text-emerald-800 text-xs uppercase mb-1">Rukun 1 & 2</h5>
+                                    <p class="font-semibold text-slate-800">Calon Suami & Calon Istri</p>
+                                    <p class="text-xs text-slate-500">Syarat: Agama Islam, berakal, bukan mahram, tidak dalam ihram, dan jelas orangnya.</p>
+                                </div>
+                                <div class="p-3 bg-white rounded-xl border border-slate-200">
+                                    <h5 class="font-bold text-emerald-800 text-xs uppercase mb-1">Rukun 3</h5>
+                                    <p class="font-semibold text-slate-800">Wali Nikah (Pihak Wanita)</p>
+                                    <p class="text-xs text-slate-500">Syarat: Laki-laki, Islam, baligh, berakal, adil, dan tidak sedang ihram. Urutan pertama: Ayah Kandung.</p>
+                                </div>
+                                <div class="p-3 bg-white rounded-xl border border-slate-200">
+                                    <h5 class="font-bold text-emerald-800 text-xs uppercase mb-1">Rukun 4</h5>
+                                    <p class="font-semibold text-slate-800">2 Orang Saksi Laki-laki</p>
+                                    <p class="text-xs text-slate-500">Syarat: Laki-laki, Islam, baligh, berakal, adil, dan memahami bahasa akad.</p>
+                                </div>
+                                <div class="p-3 bg-white rounded-xl border border-slate-200">
+                                    <h5 class="font-bold text-emerald-800 text-xs uppercase mb-1">Rukun 5</h5>
+                                    <p class="font-semibold text-slate-800">Ijab & Kabul (Shighat)</p>
+                                    <p class="text-xs text-slate-500">Ijab dari Wali, Kabul dari Pengantin Pria. Dilakukan bersambung (tidak berselang lama) dalam 1 majelis.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Modul 3 -->
+                    <details class="group bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                        <summary class="font-bold text-slate-800 cursor-pointer flex justify-between items-center">
+                            <span><i class="fa-solid fa-users text-emerald-600 mr-2"></i> 3. Mahram (Orang yang Haram Dinikahi)</span>
+                            <div class="flex items-center gap-2">
+                                <button type="button" onclick="event.stopPropagation(); speakText('Modul 3. Mahram atau orang yang haram dinikahi dibagi menjadi 3 kategori: Keturunan atau Nasab, Perkawinan atau Mushaharah, dan Persusuan atau Radha\'ah.')" class="text-xs bg-emerald-600 hover:bg-emerald-700 text-white px-2.5 py-1 rounded-lg transition flex items-center gap-1 font-normal">
+                                    <i class="fa-solid fa-volume-high"></i> Audio
+                                </button>
+                                <i class="fa-solid fa-chevron-down group-open:rotate-180 transition"></i>
+                            </div>
+                        </summary>
+                        <div class="mt-3 text-sm text-slate-600 leading-relaxed border-t border-slate-200 pt-3 space-y-2">
+                            <p>Mahram dibagi menjadi 3 kategori utama:</p>
+                            <ol class="list-decimal pl-5 space-y-1">
+                                <li><strong>Sebab Keturunan (Nasab):</strong> Ibu, anak perempuan, saudara perempuan, bibi (saudara ayah/ibu), keponakan.</li>
+                                <li><strong>Sebab Perkawinan (Mushaharah):</strong> Ibu mertua, anak tiri (jika sudah dukhul), menantu, ibu tiri.</li>
+                                <li><strong>Sebab Persusuan (Radha'ah):</strong> Ibu susuan dan saudara sepersusuan.</li>
+                            </ol>
+                        </div>
+                    </details>
+
+                    <!-- Modul 4 -->
+                    <details class="group bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                        <summary class="font-bold text-slate-800 cursor-pointer flex justify-between items-center">
+                            <span><i class="fa-solid fa-building-columns text-emerald-600 mr-2"></i> 4. UU Perkawinan Indonesia & Hikmah Nikah</span>
+                            <div class="flex items-center gap-2">
+                                <button type="button" onclick="event.stopPropagation(); speakText('Modul 4. Aturan hukum di Indonesia menurut Undang-Undang Nomor 16 Tahun 2019 menetapkan batas usia minimal pernikahan bagi pria dan wanita adalah 19 tahun demi kesiapan reproduksi, psikologis, dan pencegahan stunting.')" class="text-xs bg-emerald-600 hover:bg-emerald-700 text-white px-2.5 py-1 rounded-lg transition flex items-center gap-1 font-normal">
+                                    <i class="fa-solid fa-volume-high"></i> Audio
+                                </button>
+                                <i class="fa-solid fa-chevron-down group-open:rotate-180 transition"></i>
+                            </div>
+                        </summary>
+                        <div class="mt-3 text-sm text-slate-600 leading-relaxed border-t border-slate-200 pt-3 space-y-2">
+                            <p><strong>Aturan Hukum di Indonesia (UU No. 16 Tahun 2019 revisi UU No. 1/1974):</strong></p>
+                            <p class="bg-amber-100 text-amber-900 p-3 rounded-xl text-xs font-semibold">
+                                Batas usia minimal untuk menikah di Indonesia baik bagi pria maupun wanita adalah <strong>19 TAHUN</strong>. Kebijakan ini dibuat demi kesiapan reproduksi, kesehatan mental, keharmonisan keluarga, dan pencegahan stunting.
+                            </p>
+                            <p class="mt-2"><strong>Hikmah Pernikahan:</strong> Memelihara kesucian diri dari maksiat, melanjutkan keturunan yang sah dan shalih, menciptakan rasa tenteram (*Sakinah*), serta memperluas silaturahmi antar keluarga besar.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 3: AKTIFITAS -->
+        <section id="tab-aktifitas" class="hidden space-y-6">
+            <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100">
+                <h2 class="text-2xl font-bold text-slate-800 mb-2">Aktifitas & Studi Kasus Pembelajaran</h2>
+                <p class="text-xs text-slate-500 mb-6">Diskusi kritis siswa kelas 12 PAI seputar fenomena pernikahan modern.</p>
+
+                <!-- Case Study 1 -->
+                <div class="bg-gradient-to-r from-slate-900 to-slate-800 text-white p-6 rounded-2xl mb-6 shadow-md">
+                    <span class="bg-amber-400 text-slate-950 text-xs px-2.5 py-1 rounded-md font-bold uppercase tracking-wider">Studi Kasus 1</span>
+                    <h3 class="font-bold text-lg mt-2 mb-1">Fenomena "Nikah Muda" vs Prioritas Pendidikan</h3>
+                    <p class="text-slate-300 text-sm mb-4 leading-relaxed">
+                        Andi (17 tahun, siswa kelas 12) berencana langsung menikah tepat setelah lulus SMA dengan alasan ingin menghindari zina, meskipun ia belum bekerja dan belum matang secara psikologis. Bagaimana pandanganmu ditinjau dari syariat Islam dan Hukum UU No. 16/2019 di Indonesia?
+                    </p>
+                    
+                    <div class="space-y-3">
+                        <textarea id="refleksi-input" rows="3" class="w-full text-slate-800 text-sm p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500" placeholder="Tuliskan pendapatmu di sini..."></textarea>
+                        <button onclick="simpanRefleksi()" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition">
+                            <i class="fa-solid fa-paper-plane mr-1"></i> Kirim Jawaban Diskusi
+                        </button>
+                    </div>
+
+                    <div id="feedback-refleksi" class="hidden mt-4 p-4 bg-emerald-900/60 border border-emerald-500/40 rounded-xl text-xs text-emerald-200">
+                        <p class="font-bold text-white mb-1"><i class="fa-solid fa-circle-check text-emerald-400"></i> Catatan Pak Alwi Mushthofa, M.Pd.:</p>
+                        <p>Luar biasa! Dalam pandangan Islam, menikah membutuhkan kesiapan lahiriah dan batiniah (*Istitha'ah*). Jika belum siap nafkah lahir dan batin, Rasulullah SAW menyarankan untuk berpuasa sebagai benteng diri, serta mengutamakan kematangan usia (minimal 19 tahun sesuai UU RI) demi stabilitas keluarga.</p>
+                    </div>
+                </div>
+
+                <!-- Discussion Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-5 border border-slate-200 rounded-2xl bg-emerald-50/50">
+                        <div class="text-emerald-700 font-bold text-base mb-2 flex items-center">
+                            <i class="fa-solid fa-heart mr-2"></i> Pilar Keluarga Sakinah
+                        </div>
+                        <ul class="text-xs text-slate-600 space-y-2">
+                            <li>• <strong>Sakinah:</strong> Ketenangan jiwa saat bersama pasangan.</li>
+                            <li>• <strong>Mawaddah:</strong> Cinta kasih fisik dan emosional yang menggelora.</li>
+                            <li>• <strong>Warahmah:</strong> Kasih sayang mendalam, pengorbanan & empati.</li>
+                        </ul>
+                    </div>
+                    <div class="p-5 border border-slate-200 rounded-2xl bg-amber-50/50">
+                        <div class="text-amber-800 font-bold text-base mb-2 flex items-center">
+                            <i class="fa-solid fa-triangle-exclamation mr-2"></i> Pencegahan Stunting & KDRT
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Pernikahan dini tanpa kesiapan psikologis dan ekonomi matang berisiko meningkatkan angka perceraian, Kekerasan Dalam Rumah Tangga (KDRT), dan anak lahir stunting karena pola asuh yang belum memadai.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 4: SIMULASI -->
+        <section id="tab-simulasi" class="hidden space-y-6">
+            <!-- Simulation 1: Readines Calculator -->
+            <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100">
+                <h2 class="text-2xl font-bold text-slate-800 mb-1">1. Check-List Kesiapan Pernikahan (Self-Assessment)</h2>
+                <p class="text-xs text-slate-500 mb-4">Pilih kriteria di bawah ini yang sudah kamu miliki untuk mengukur kesiapan masa depanmu:</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm mb-4">
+                    <label class="flex items-center space-x-3 p-3 bg-slate-50 rounded-xl border cursor-pointer hover:bg-emerald-50">
+                        <input type="checkbox" onchange="hitungKesiapan()" class="chk-kesiapan w-4 h-4 text-emerald-600">
+                        <span>Memiliki pemahaman Fiqih Pernikahan yang benar</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-50 rounded-xl border cursor-pointer hover:bg-emerald-50">
+                        <input type="checkbox" onchange="hitungKesiapan()" class="chk-kesiapan w-4 h-4 text-emerald-600">
+                        <span>Berusia minimal 19 tahun sesuai UU RI</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-50 rounded-xl border cursor-pointer hover:bg-emerald-50">
+                        <input type="checkbox" onchange="hitungKesiapan()" class="chk-kesiapan w-4 h-4 text-emerald-600">
+                        <span>Memiliki kemandirian finansial / penghasilan halal</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-50 rounded-xl border cursor-pointer hover:bg-emerald-50">
+                        <input type="checkbox" onchange="hitungKesiapan()" class="chk-kesiapan w-4 h-4 text-emerald-600">
+                        <span>Kematangan emosi & Mampu mengelola konflik secara baik</span>
+                    </label>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="w-full bg-slate-100 h-4 rounded-full overflow-hidden">
+                    <div id="bar-kesiapan" class="bg-emerald-500 h-full w-0 transition-all duration-500"></div>
+                </div>
+                <p id="teks-kesiapan" class="text-xs font-bold text-slate-600 mt-2 text-right">Tingkat Kesiapan: 0%</p>
+            </div>
+
+            <!-- Simulation 2: Virtual Ijab Kabul -->
+            <div class="bg-gradient-to-br from-emerald-900 to-teal-900 text-white p-6 rounded-3xl shadow-xl">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-2xl font-bold">2. Simulasi Interaktif Ijab Kabul</h2>
+                    <span class="bg-amber-400 text-slate-950 font-bold text-xs px-3 py-1 rounded-full">Praktik Fiqih</span>
+                </div>
+                <p class="text-xs text-emerald-200 mb-6">Isi nama di bawah untuk mensimulasikan lafal Ijab (Wali) dan Kabul (Pengantin Pria):</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4 text-slate-800 text-xs">
+                    <div>
+                        <label class="block text-white font-semibold mb-1">Nama Wali Nikah:</label>
+                        <input id="sim-wali" type="text" value="Bapak Ahmad" class="w-full p-2.5 rounded-xl">
+                    </div>
+                    <div>
+                        <label class="block text-white font-semibold mb-1">Nama Pengantin Pria:</label>
+                        <input id="sim-pria" type="text" value="Muhammad Rizky" class="w-full p-2.5 rounded-xl">
+                    </div>
+                    <div>
+                        <label class="block text-white font-semibold mb-1">Nama Pengantin Wanita:</label>
+                        <input id="sim-wanita" type="text" value="Siti Nurhaliza" class="w-full p-2.5 rounded-xl">
+                    </div>
+                </div>
+
+                <div class="text-center my-4">
+                    <button onclick="prosesSimulasiIjab()" class="bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold px-6 py-3 rounded-2xl shadow-lg transition flex items-center mx-auto gap-2">
+                        <i class="fa-solid fa-bullhorn text-base"></i> <span>Lakukan Akad Nikah (Suara & Audio)</span>
+                    </button>
+                </div>
+
+                <!-- Dialogue Output -->
+                <div id="ijab-box" class="hidden space-y-4 bg-emerald-950/80 p-5 rounded-2xl border border-emerald-500/30 text-sm">
+                    <div class="p-3 bg-emerald-900/50 rounded-xl border-l-4 border-amber-400 flex justify-between items-start">
+                        <div>
+                            <p class="font-bold text-amber-300 text-xs mb-1">Lafal IJAB (Oleh Wali Nikah):</p>
+                            <p id="teks-ijab" class="italic text-emerald-100">"Ankahtuka wa zawwajtuka..."</p>
+                        </div>
+                        <button onclick="speakText(document.getElementById('teks-ijab').innerText)" class="text-xs bg-amber-400/20 text-amber-300 p-1.5 rounded-lg hover:bg-amber-400/40">
+                            <i class="fa-solid fa-volume-high"></i>
+                        </button>
+                    </div>
+                    <div class="p-3 bg-teal-900/50 rounded-xl border-l-4 border-emerald-400 flex justify-between items-start">
+                        <div>
+                            <p class="font-bold text-emerald-300 text-xs mb-1">Lafal KABUL (Oleh Pengantin Pria):</p>
+                            <p id="teks-kabul" class="italic text-emerald-100">"Qabiltu nikahaha..."</p>
+                        </div>
+                        <button onclick="speakText(document.getElementById('teks-kabul').innerText)" class="text-xs bg-emerald-400/20 text-emerald-300 p-1.5 rounded-lg hover:bg-emerald-400/40">
+                            <i class="fa-solid fa-volume-high"></i>
+                        </button>
+                    </div>
+                    <div class="text-center font-bold text-amber-300 text-base py-2 border-t border-emerald-800 flex items-center justify-center gap-2">
+                        Saksi: <span class="text-white">"SAH! (Alhamdulillah)"</span>
+                        <button onclick="playSuccessFanfare(); speakText('Sah! Alhamdulillah!')" class="text-xs bg-amber-400 text-slate-950 font-bold px-2 py-1 rounded-md">
+                            <i class="fa-solid fa-volume-high"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 5: KUIS (10 Soal) -->
+        <section id="tab-kuis" class="hidden space-y-6">
+            <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100">
+                <div class="flex flex-wrap justify-between items-center mb-6 pb-4 border-b">
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-800">Kuis Evaluasi Pernikahan dalam Islam</h2>
+                        <p class="text-xs text-slate-500">10 Soal: 3 Pilihan Ganda • 3 Menjodohkan • 2 Benar/Salah • 2 Esai</p>
+                    </div>
+                    <div id="quiz-badge" class="bg-slate-100 text-slate-700 font-bold px-4 py-2 rounded-xl text-sm">
+                        Skor: <span id="skor-val" class="text-emerald-600 text-lg">0</span> / 100
+                    </div>
+                </div>
+
+                <form id="quiz-form" onsubmit="evaluasiKuis(event)" class="space-y-8">
+                    
+                    <!-- SECTION A: PILIHAN GANDA (3 Soal) -->
+                    <div class="space-y-6">
+                        <h3 class="font-bold text-emerald-800 text-sm uppercase tracking-wider bg-emerald-50 p-2 rounded-lg">Bagian A: Pilihan Ganda</h3>
+
+                        <!-- PG 1 -->
+                        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                            <p class="font-semibold text-slate-800 text-sm">1. Rukun nikah yang ditandai dengan serah terima ucapan dari wali nikah dan jawaban dari calon pengantin pria disebut...</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs">
+                                <label class="p-2.5 bg-white rounded-xl border hover:bg-emerald-50 cursor-pointer flex items-center space-x-2">
+                                    <input type="radio" name="pg1" value="A"> <span>A. Walimatul 'Ursy</span>
+                                </label>
+                                <label class="p-2.5 bg-white rounded-xl border hover:bg-emerald-50 cursor-pointer flex items-center space-x-2">
+                                    <input type="radio" name="pg1" value="B"> <span>B. Khitbah (Lamaran)</span>
+                                </label>
+                                <label class="p-2.5 bg-white rounded-xl border hover:bg-emerald-50 cursor-pointer flex items-center space-x-2">
+                                    <input type="radio" name="pg1" value="C"> <span>C. Ijab dan Kabul</span>
+                                </label>
+                                <label class="p-2.5 bg-white rounded-xl border hover:bg-emerald-50 cursor-pointer flex items-center space-x-2">
+                                    <input type="radio" name="pg1" value="D"> <span>D. Mahar Musamma</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- PG 2 -->
+                        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                            <p class="font-semibold text-slate-800 text-sm">2. Berdasarkan UU No. 16 Tahun 2019 tentang Perkawinan di Indonesia, batas usia minimal untuk menikah bagi pria dan wanita adalah...</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs">
+                                <label class="p-2.5 bg-white rounded-xl border hover:bg-emerald-50 cursor-pointer flex items-center space-x-2">
+                                    <input type="radio" name="pg2" value="A"> <span>A. 17 Tahun</span>
+                                </label>
+                                <label class="p-2.5 bg-white rounded-xl border hover:bg-emerald-50 cursor-pointer flex items-center space-x-2">
+                                    <input type="radio" name="pg2" value="B"> <span>B. 19 Tahun</span>
+                                </label>
+                                <label class="p-2.5 bg-white rounded-xl border hover:bg-emerald-50 cursor-pointer flex items-center space-x-2">
+                                    <input type="radio" name="pg2" value="C"> <span>C. 21 Tahun</span>
+                                </label>
+                                <label class="p-2.5 bg-white rounded-xl border hover:bg-emerald-50 cursor-pointer flex items-center space-x-2">
+                                    <input type="radio" name="pg2" value="D"> <span>D. 25 Tahun</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- PG 3 -->
+                        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                            <p class="font-semibold text-slate-800 text-sm">3. Hukum menikah menjadi <strong>WAJIB</strong> bagi seorang Muslim apabila...</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs">
+                                <label class="p-2.5 bg-white rounded-xl border hover:bg-emerald-50 cursor-pointer flex items-center space-x-2">
+                                    <input type="radio" name="pg3" value="A"> <span>A. Sudah memiliki pekerjaan tetap tetapi belum ada niat menikah</span>
+                                </label>
+                                <label class="p-2.5 bg-white rounded-xl border hover:bg-emerald-50 cursor-pointer flex items-center space-x-2">
+                                    <input type="radio" name="pg3" value="B"> <span>B. Ingin membahagiakan kedua orang tua semata</span>
+                                </label>
+                                <label class="p-2.5 bg-white rounded-xl border hover:bg-emerald-50 cursor-pointer flex items-center space-x-2">
+                                    <input type="radio" name="pg3" value="C"> <span>C. Mampu secara lahir batin & khawatir terjerumus zina jika tidak nikah</span>
+                                </label>
+                                <label class="p-2.5 bg-white rounded-xl border hover:bg-emerald-50 cursor-pointer flex items-center space-x-2">
+                                    <input type="radio" name="pg3" value="D"> <span>D. Belum mampu finansial tetapi dipaksa keluarga</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECTION B: MENJODOHKAN (3 Soal) -->
+                    <div class="space-y-6">
+                        <h3 class="font-bold text-amber-800 text-sm uppercase tracking-wider bg-amber-50 p-2 rounded-lg">Bagian B: Menjodohkan Konsep Keluarga</h3>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                            <!-- Match 1 -->
+                            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+                                <p class="font-bold text-slate-800 mb-2">4. Sakinah</p>
+                                <select id="match1" class="w-full p-2 bg-white rounded-xl border border-slate-300">
+                                    <option value="">-- Pilih Pasangan Arti --</option>
+                                    <option value="A">Cinta kasih fisik & emosional yang memikat</option>
+                                    <option value="B">Ketenangan, ketenteraman & kedamaian jiwa</option>
+                                    <option value="C">Kasih sayang mendalam, empati & pengorbanan</option>
+                                </select>
+                            </div>
+
+                            <!-- Match 2 -->
+                            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+                                <p class="font-bold text-slate-800 mb-2">5. Mawaddah</p>
+                                <select id="match2" class="w-full p-2 bg-white rounded-xl border border-slate-300">
+                                    <option value="">-- Pilih Pasangan Arti --</option>
+                                    <option value="A">Cinta kasih fisik & emosional yang memikat</option>
+                                    <option value="B">Ketenangan, ketenteraman & kedamaian jiwa</option>
+                                    <option value="C">Kasih sayang mendalam, empati & pengorbanan</option>
+                                </select>
+                            </div>
+
+                            <!-- Match 3 -->
+                            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+                                <p class="font-bold text-slate-800 mb-2">6. Warahmah</p>
+                                <select id="match3" class="w-full p-2 bg-white rounded-xl border border-slate-300">
+                                    <option value="">-- Pilih Pasangan Arti --</option>
+                                    <option value="A">Cinta kasih fisik & emosional yang memikat</option>
+                                    <option value="B">Ketenangan, ketenteraman & kedamaian jiwa</option>
+                                    <option value="C">Kasih sayang mendalam, empati & pengorbanan</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECTION C: BENAR / SALAH (2 Soal) -->
+                    <div class="space-y-6">
+                        <h3 class="font-bold text-teal-800 text-sm uppercase tracking-wider bg-teal-50 p-2 rounded-lg">Bagian C: Benar atau Salah</h3>
+
+                        <!-- BS 1 -->
+                        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                            <p class="font-semibold text-slate-800 text-sm">7. Kehadiran minimal dua orang saksi laki-laki yang adil dan beragama Islam merupakan salah satu rukun sahnya akad nikah.</p>
+                            <div class="flex gap-4 text-xs">
+                                <label class="p-2.5 px-5 bg-white rounded-xl border cursor-pointer hover:bg-emerald-50 flex items-center space-x-2">
+                                    <input type="radio" name="bs1" value="BENAR"> <span>BENAR</span>
+                                </label>
+                                <label class="p-2.5 px-5 bg-white rounded-xl border cursor-pointer hover:bg-emerald-50 flex items-center space-x-2">
+                                    <input type="radio" name="bs1" value="SALAH"> <span>SALAH</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- BS 2 -->
+                        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                            <p class="font-semibold text-slate-800 text-sm">8. Urutan wali nasab pertama bagi seorang calon pengantin wanita adalah saudara laki-laki kandungnya, meskipun ayahnya masih hidup sehat.</p>
+                            <div class="flex gap-4 text-xs">
+                                <label class="p-2.5 px-5 bg-white rounded-xl border cursor-pointer hover:bg-emerald-50 flex items-center space-x-2">
+                                    <input type="radio" name="bs2" value="BENAR"> <span>BENAR</span>
+                                </label>
+                                <label class="p-2.5 px-5 bg-white rounded-xl border cursor-pointer hover:bg-emerald-50 flex items-center space-x-2">
+                                    <input type="radio" name="bs2" value="SALAH"> <span>SALAH</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECTION D: ESAI (2 Soal) -->
+                    <div class="space-y-6">
+                        <h3 class="font-bold text-purple-800 text-sm uppercase tracking-wider bg-purple-50 p-2 rounded-lg">Bagian D: Pertanyaan Esai Analisis</h3>
+
+                        <!-- Essay 1 -->
+                        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                            <p class="font-semibold text-slate-800 text-sm">9. Jelaskan 3 hikmah atau tujuan disyariatkannya pernikahan dalam Islam bagi kehidupan individu dan masyarakat!</p>
+                            <textarea id="essay1" rows="3" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500" placeholder="Ketik jawaban esaimu..."></textarea>
+                        </div>
+
+                        <!-- Essay 2 -->
+                        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                            <p class="font-semibold text-slate-800 text-sm">10. Mengapa pemerintah Indonesia menetapkan batas usia minimal pernikahan 19 tahun? Hubungkan dengan kesiapan fisik, psikologis, dan pencegahan masalah sosial!</p>
+                            <textarea id="essay2" rows="3" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500" placeholder="Ketik jawaban esaimu..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-center pt-4">
+                        <button type="submit" class="bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold px-8 py-3 rounded-2xl shadow-lg transition text-sm">
+                            <i class="fa-solid fa-check-circle mr-2"></i> Submit & Cek Hasil Kuis
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Quiz Result Box -->
+                <div id="quiz-result-modal" class="hidden mt-8 p-6 bg-emerald-50 border-2 border-emerald-500 rounded-3xl space-y-4">
+                    <div class="text-center">
+                        <span class="text-4xl">🎉</span>
+                        <h3 class="text-2xl font-extrabold text-slate-800 mt-2">Hasil Evaluasi Kuis</h3>
+                        <p id="final-score-text" class="text-3xl font-extrabold text-emerald-600 my-2">0 / 100</p>
+                        <p id="final-feedback" class="text-xs text-slate-600 italic">Maa Syaa Allah, kerja bagus!</p>
+                    </div>
+
+                    <!-- Key Answers & Essay Sample -->
+                    <div class="bg-white p-4 rounded-2xl border text-xs space-y-2">
+                        <p class="font-bold text-slate-800 border-b pb-1">Kunci & Pembahasan Ringkas:</p>
+                        <p><strong>PG 1-3:</strong> 1. C (Ijab Kabul), 2. B (19 Tahun), 3. C (Mampu & takut zina)</p>
+                        <p><strong>Menjodohkan 4-6:</strong> Sakinah = Ketenangan; Mawaddah = Cinta fisik/emosi; Warahmah = Kasih sayang mendalam.</p>
+                        <p><strong>Benar/Salah 7-8:</strong> 7. BENAR, 8. SALAH (Ayah kandung urutan pertama, bukan saudara).</p>
+                        <p><strong>Kunci Esai 9:</strong> Memelihara kesucian diri, melanjutkan keturunan sah, membangun kedamaian rumah tangga.</p>
+                        <p><strong>Kunci Esai 10:</strong> Kematangan organ reproduksi, kesiapan mental mengelola stres, dan kemandirian ekonomi pencegah stunting.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-6 text-center text-xs border-t border-slate-800 mt-8">
+        <div class="max-w-6xl mx-auto px-4 space-y-1">
+            <p class="font-bold text-slate-200">Media Pembelajaran Interaktif PAI SMA Kelas XII</p>
+            <p>Disusun oleh <strong>Pak Alwi Mushthofa, M.Pd.</strong> • Guru PAI SMA Negeri 1 Depok • Yogyakarta © 2026</p>
+        </div>
+    </footer>
+
+    <script>
+        // Web Audio API Sound Synthesizer & Web Speech API Engine
+        let audioCtx = null;
+        let bgmOsc = null;
+        let bgmGain = null;
+        let isBgmPlaying = false;
+
+        function getAudioContext() {
+            if (!audioCtx) {
+                const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                if (AudioContextClass) {
+                    audioCtx = new AudioContextClass();
+                }
+            }
+            if (audioCtx && audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            return audioCtx;
+        }
+
+        // Sound Effects (SFX) using Web Audio API
+        function playClickSound() {
+            try {
+                const ctx = getAudioContext();
+                if(!ctx) return;
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(600, ctx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(200, ctx.currentTime + 0.08);
+                gain.gain.setValueAtTime(0.15, ctx.currentTime);
+                gain.gain.linearRampToValueAtTime(0.01, ctx.currentTime + 0.08);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.08);
+            } catch(e) {}
+        }
+
+        function playPopSound() {
+            try {
+                const ctx = getAudioContext();
+                if(!ctx) return;
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(300, ctx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(800, ctx.currentTime + 0.1);
+                gain.gain.setValueAtTime(0.2, ctx.currentTime);
+                gain.gain.linearRampToValueAtTime(0.01, ctx.currentTime + 0.1);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.1);
+            } catch(e) {}
+        }
+
+        function playSuccessFanfare() {
+            try {
+                const ctx = getAudioContext();
+                if(!ctx) return;
+                const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+                notes.forEach((freq, i) => {
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.value = freq;
+                    gain.gain.setValueAtTime(0.15, ctx.currentTime + i * 0.12);
+                    gain.gain.linearRampToValueAtTime(0.01, ctx.currentTime + i * 0.12 + 0.3);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(ctx.currentTime + i * 0.12);
+                    osc.stop(ctx.currentTime + i * 0.12 + 0.3);
+                });
+            } catch(e) {}
+        }
+
+        // BGM Ambient Synth
+        function toggleAudioBGM() {
+            playClickSound();
+            const btn = document.getElementById('btn-bgm');
+            const status = document.getElementById('audio-status');
+
+            if (isBgmPlaying) {
+                if (bgmOsc) {
+                    try { bgmOsc.stop(); } catch(e) {}
+                }
+                isBgmPlaying = false;
+                btn.classList.replace('bg-amber-500', 'bg-emerald-600');
+                if(status) status.innerText = 'Audio Aktif';
+            } else {
+                try {
+                    const ctx = getAudioContext();
+                    if (!ctx) return;
+                    bgmOsc = ctx.createOscillator();
+                    bgmGain = ctx.createGain();
+                    bgmOsc.type = 'sine';
+                    bgmOsc.frequency.setValueAtTime(220, ctx.currentTime); // A3 soft tone
+                    
+                    bgmGain.gain.setValueAtTime(0.02, ctx.currentTime);
+                    bgmOsc.connect(bgmGain);
+                    bgmGain.connect(ctx.destination);
+                    bgmOsc.start();
+                    isBgmPlaying = true;
+                    btn.classList.replace('bg-emerald-600', 'bg-amber-500');
+                    if(status) status.innerText = 'BGM Memutar';
+                } catch(e) {
+                    alertCustom('Audio tidak dapat diputar otomatis. Silakan interaksi dengan halaman terlebih dahulu.');
+                }
+            }
+        }
+
+        // Web Speech API Text-to-Speech (Indonesian Voice)
+        function speakText(text) {
+            playClickSound();
+            if (!('speechSynthesis' in window)) {
+                alertCustom('Browser Anda tidak mendukung fitur audio narasi otomatis.');
+                return;
+            }
+
+            // Stop ongoing speech
+            window.speechSynthesis.cancel();
+
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'id-ID'; // Indonesian
+            utterance.rate = 0.95; // Speech speed
+            utterance.pitch = 1.0;
+
+            // Try picking an Indonesian voice if available
+            const voices = window.speechSynthesis.getVoices();
+            const idVoice = voices.find(v => v.lang.includes('id') || v.lang.includes('ID'));
+            if (idVoice) {
+                utterance.voice = idVoice;
+            }
+
+            window.speechSynthesis.speak(utterance);
+        }
+
+        function stopSpeech() {
+            playClickSound();
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+            }
+        }
+
+        // Tab Switcher
+        function switchTab(tabId) {
+            playClickSound();
+            stopSpeech();
+            const tabs = ['beranda', 'materi', 'aktifitas', 'simulasi', 'kuis'];
+            tabs.forEach(t => {
+                const el = document.getElementById(`tab-${t}`);
+                const btn = document.getElementById(`btn-${t}`);
+                if (t === tabId) {
+                    el.classList.remove('hidden');
+                    btn.classList.add('active');
+                } else {
+                    el.classList.add('hidden');
+                    btn.classList.remove('active');
+                }
+            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Activity Reflection Save
+        function simpanRefleksi() {
+            playClickSound();
+            const val = document.getElementById('refleksi-input').value.trim();
+            if(!val) {
+                alertCustom('Silakan isi jawaban refleksi pendapatmu terlebih dahulu!');
+                return;
+            }
+            document.getElementById('feedback-refleksi').classList.remove('hidden');
+            speakText('Terima kasih atas tanggapanmu. Dalam pandangan Islam, menikah membutuhkan kesiapan lahiriah dan batiniah.');
+        }
+
+        // Custom Notification (Replacing alert)
+        function alertCustom(msg) {
+            const div = document.createElement('div');
+            div.className = 'fixed bottom-5 right-5 bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-2xl z-50 text-xs border border-emerald-500 flex items-center space-x-2 animate-bounce';
+            div.innerHTML = `<i class="fa-solid fa-circle-info text-emerald-400"></i> <span>${msg}</span>`;
+            document.body.appendChild(div);
+            setTimeout(() => div.remove(), 3000);
+        }
+
+        // Simulation Checklist
+        function hitungKesiapan() {
+            playPopSound();
+            const checkboxes = document.querySelectorAll('.chk-kesiapan');
+            let checked = 0;
+            checkboxes.forEach(c => { if(c.checked) checked++; });
+            const percent = (checked / checkboxes.length) * 100;
+            
+            const bar = document.getElementById('bar-kesiapan');
+            const txt = document.getElementById('teks-kesiapan');
+            
+            bar.style.width = percent + '%';
+            txt.innerText = `Tingkat Kesiapan: ${percent}% (${checked} dari 4 Kriteria Terpenuhi)`;
+
+            if(percent === 100) {
+                playSuccessFanfare();
+            }
+        }
+
+        // Simulation Ijab Kabul
+        function prosesSimulasiIjab() {
+            playClickSound();
+            const wali = document.getElementById('sim-wali').value || 'Wali';
+            const pria = document.getElementById('sim-pria').value || 'Pengantin Pria';
+            const wanita = document.getElementById('sim-wanita').value || 'Pengantin Wanita';
+
+            const teksIjab = `Ananda ${pria}, saya nikahkan dan saya kawinkan engkau dengan anak saya ${wanita} dengan mahar seperangkat alat shalat dibayar tunai.`;
+            const teksKabul = `Saya terima nikah dan kawinnya ${wanita} binti ${wali} dengan mahar tersebut dibayar tunai!`;
+
+            document.getElementById('teks-ijab').innerText = `"${teksIjab}"`;
+            document.getElementById('teks-kabul').innerText = `"${teksKabul}"`;
+
+            document.getElementById('ijab-box').classList.remove('hidden');
+
+            // Read Akad aloud sequentially
+            speakText(`Lafal Ijab: ${teksIjab}. Lalu lafal Kabul: ${teksKabul}. Saksi mengucapkan: Sah! Alhamdulillah!`);
+            setTimeout(() => {
+                playSuccessFanfare();
+            }, 3000);
+        }
+
+        // Quiz Evaluation Engine
+        function evaluasiKuis(e) {
+            e.preventDefault();
+            playClickSound();
+            let score = 0;
+
+            // 1. Check PG 1 (C) - 10 pt
+            const pg1 = document.querySelector('input[name="pg1"]:checked')?.value;
+            if (pg1 === 'C') score += 10;
+
+            // 2. Check PG 2 (B) - 10 pt
+            const pg2 = document.querySelector('input[name="pg2"]:checked')?.value;
+            if (pg2 === 'B') score += 10;
+
+            // 3. Check PG 3 (C) - 10 pt
+            const pg3 = document.querySelector('input[name="pg3"]:checked')?.value;
+            if (pg3 === 'C') score += 10;
+
+            // 4. Match 1 Sakinah -> B - 10 pt
+            const m1 = document.getElementById('match1').value;
+            if (m1 === 'B') score += 10;
+
+            // 5. Match 2 Mawaddah -> A - 10 pt
+            const m2 = document.getElementById('match2').value;
+            if (m2 === 'A') score += 10;
+
+            // 6. Match 3 Warahmah -> C - 10 pt
+            const m3 = document.getElementById('match3').value;
+            if (m3 === 'C') score += 10;
+
+            // 7. BS 1 -> BENAR - 10 pt
+            const bs1 = document.querySelector('input[name="bs1"]:checked')?.value;
+            if (bs1 === 'BENAR') score += 10;
+
+            // 8. BS 2 -> SALAH - 10 pt
+            const bs2 = document.querySelector('input[name="bs2"]:checked')?.value;
+            if (bs2 === 'SALAH') score += 10;
+
+            // 9. Essay 1 - 10 pt (bonus base if text length > 15)
+            const e1 = document.getElementById('essay1').value.trim();
+            if (e1.length >= 15) score += 10;
+
+            // 10. Essay 2 - 10 pt (bonus base if text length > 15)
+            const e2 = document.getElementById('essay2').value.trim();
+            if (e2.length >= 15) score += 10;
+
+            // Update Score Display
+            document.getElementById('skor-val').innerText = score;
+            document.getElementById('final-score-text').innerText = `${score} / 100`;
+
+            let feedback = "Maa Syaa Allah! Tetap semangat memperdalam ilmu agama!";
+            if (score >= 80) feedback = "Maa Syaa Allah, Luar Biasa! Pemahaman Fiqih Pernikahanmu Sangat Baik!";
+            else if (score >= 60) feedback = "Alhamdulillah Baik! Pelajari kembali beberapa materi yang belum tepat.";
+
+            document.getElementById('final-feedback').innerText = feedback;
+            document.getElementById('quiz-result-modal').classList.remove('hidden');
+            document.getElementById('quiz-result-modal').scrollIntoView({ behavior: 'smooth' });
+
+            playSuccessFanfare();
+            speakText(`Selamat! Evaluasi Kuis Selesai. Nilai kamu adalah ${score} dari 100. ${feedback}`);
+        }
+    </script>
+</body>
+</html>
