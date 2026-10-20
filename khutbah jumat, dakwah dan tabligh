@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Pembelajaran Interaktif PAI Kelas XI - Khutbah, Tabligh, dan Dakwah</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .tab-active { border-bottom: 4px solid #0D9488; color: #0D9488; font-weight: 700; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+
+    <!-- Header / Navbar -->
+    <header class="bg-gradient-to-r from-teal-700 to-emerald-800 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center space-x-3">
+                <div class="bg-white/10 p-3 rounded-xl backdrop-blur-md">
+                    <i class="fa-solid fa-mosque text-2xl text-emerald-300"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold tracking-wide">Media Pembelajaran Interaktif PAI & BP</h1>
+                    <p class="text-xs text-emerald-200">SMA Negeri 1 Depok Sleman • Kelas XI Semester Gasal</p>
+                </div>
+            </div>
+            <div class="text-right text-xs bg-emerald-900/40 px-4 py-2 rounded-lg border border-emerald-500/30">
+                <p class="font-semibold text-emerald-200"><i class="fa-solid fa-user-tie mr-1"></i> Guru Pengampu:</p>
+                <p class="text-sm font-bold">Alwi Mushthofa, S.Pd.I., M.Pd.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="bg-white border-b border-slate-200 sticky top-[73px] z-40 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 flex space-x-2 md:space-x-8 overflow-x-auto text-sm font-medium">
+            <button onclick="switchTab('materi')" id="btn-materi" class="tab-btn py-4 px-3 whitespace-nowrap tab-active flex items-center gap-2">
+                <i class="fa-solid fa-book-open"></i> Materi & Indikator
+            </button>
+            <button onclick="switchTab('simulasi')" id="btn-simulasi" class="tab-btn py-4 px-3 whitespace-nowrap text-slate-500 hover:text-teal-700 flex items-center gap-2">
+                <i class="fa-solid fa-person-chalkboard"></i> Simulasi Rukun Khutbah
+            </button>
+            <button onclick="switchTab('genz')" id="btn-genz" class="tab-btn py-4 px-3 whitespace-nowrap text-slate-500 hover:text-teal-700 flex items-center gap-2">
+                <i class="fa-solid fa-hashtag"></i> Strategi Dakwah Gen Z
+            </button>
+            <button onclick="switchTab('pg')" id="btn-pg" class="tab-btn py-4 px-3 whitespace-nowrap text-slate-500 hover:text-teal-700 flex items-center gap-2">
+                <i class="fa-solid fa-list-check"></i> Uji Pemahaman PG
+            </button>
+            <button onclick="switchTab('essay')" id="btn-essay" class="tab-btn py-4 px-3 whitespace-nowrap text-slate-500 hover:text-teal-700 flex items-center gap-2">
+                <i class="fa-solid fa-pen-to-square"></i> Soal Essay & Rubrik
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="max-w-7xl mx-auto px-4 py-8 flex-grow w-full">
+
+        <!-- TAB 1: MATERI & INDIKATOR -->
+        <section id="materi" class="tab-content block space-y-6">
+            <!-- TP Banner -->
+            <div class="bg-gradient-to-r from-emerald-500 to-teal-600 rounded-2xl p-6 text-white shadow-md">
+                <div class="flex items-start gap-4">
+                    <div class="p-3 bg-white/20 rounded-xl text-2xl"><i class="fa-solid fa-bullseye"></i></div>
+                    <div>
+                        <h2 class="text-xl font-bold mb-1">Tujuan Pembelajaran (TP)</h2>
+                        <p class="text-emerald-50 leading-relaxed">
+                            Peserta didik mampu **menerapkan dan merefleksikan ketentuan Khutbah, Tabligh, dan Dakwah** untuk menumbuhkan sikap moderat, komunikatif, dan bertanggung jawab dalam kehidupan bermasyarakat.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4 Indikator Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Indikator 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="w-8 h-8 rounded-full bg-teal-100 text-teal-800 font-bold flex items-center justify-center text-sm">1</span>
+                        <h3 class="font-bold text-slate-800 text-lg">Rukun-Rukun Khutbah Jumat</h3>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-4">Rukun khutbah adalah hal yang wajib dipenuhi saat khutbah berlangsung agar ibadah Salat Jumat sah.</p>
+                    <ul class="space-y-2 text-sm text-slate-700">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i> Membaca Hamdalah (Pujian kepada Allah SWT).</li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i> Membaca Salawat Nabi Muhammad SAW.</li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i> Wasiat Taqwa (Mengajak bertakwa).</li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i> Membaca Ayat Al-Qur'an pada salah satu khutbah.</li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i> Memohon Doa Ampunan bagi umat Islam pada khutbah kedua.</li>
+                    </ul>
+                </div>
+
+                <!-- Indikator 2 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="w-8 h-8 rounded-full bg-teal-100 text-teal-800 font-bold flex items-center justify-center text-sm">2</span>
+                        <h3 class="font-bold text-slate-800 text-lg">Kualifikasi Syarat Khatib & Mubaligh</h3>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-4">Syarat utama seseorang dapat tampil membawakan khutbah maupun tabligh di hadapan publik.</p>
+                    <div class="space-y-3 text-sm">
+                        <div class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                            <span class="font-bold text-teal-700">Syarat Khatib:</span> Islam, baligh, berakal, laki-laki, suci dari hadas & najis, menutup aurat, serta memahami syariat/fikih khutbah.
+                        </div>
+                        <div class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                            <span class="font-bold text-emerald-700">Syarat Mubaligh:</span> Islam, baligh, berakal, memiliki pemahaman agama yang shahih, bertutur kata santun, dan menjadi teladan (*uswatun hasanah*).
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Indikator 3 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="w-8 h-8 rounded-full bg-teal-100 text-teal-800 font-bold flex items-center justify-center text-sm">3</span>
+                        <h3 class="font-bold text-slate-800 text-lg">Penataan Materi Dakwah Bagi Gen Z</h3>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-4">Strategi relevansi pesan dakwah agar dapat diterima dengan baik oleh generasi muda digital.</p>
+                    <ul class="space-y-2 text-sm text-slate-700">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-bolt text-amber-500 mt-1"></i> **Singkat, Padat, Visual:** Menggunakan media sosial/konten kreatif.</li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-heart text-amber-500 mt-1"></i> **Aplikatif & Solutif:** Membahas isu nyata (mental health, etika medsos, finansial syariah).</li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-comments text-amber-500 mt-1"></i> **Dialogis & Kolaboratif:** Bukan doktriner satu arah, melainkan merangkul ruang diskusi.</li>
+                    </ul>
+                </div>
+
+                <!-- Indikator 4 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="w-8 h-8 rounded-full bg-teal-100 text-teal-800 font-bold flex items-center justify-center text-sm">4</span>
+                        <h3 class="font-bold text-slate-800 text-lg">Praktik Khutbah Bermuatan Moderasi Beragama</h3>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-4">Mewujudkan pesan agama yang tawasuth (tengah-tengah), tawazun (seimbang), dan tasamuh (toleran).</p>
+                    <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-xl text-sm text-emerald-900">
+                        <p class="font-semibold mb-1"><i class="fa-solid fa-scale-balanced mr-1"></i> Prinsip Moderasi:</p>
+                        <p>Khutbah hendaknya melembutkan hati, mempererat persaudaraan kebangsaan (*ukhuwah wathaniyah*), serta menghindari ujaran kebencian, caci maki, maupun tafsir keagamaan yang ekstrem (*tatharruf*).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 2: SIMULASI RUKUN KHUTBAH -->
+        <section id="simulasi" class="tab-content hidden space-y-6">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                <h2 class="text-xl font-bold text-slate-800 mb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-gamepad text-teal-600"></i> Interaktif: Uji Urutan & Kelengkapan Rukun Khutbah
+                </h2>
+                <p class="text-slate-600 text-sm mb-6">Klik kalimat di bawah ini untuk menyusun teks khutbah Jumat berdasarkan rukun yang benar!</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Option Blocks -->
+                    <div class="space-y-3">
+                        <h3 class="font-bold text-sm text-slate-700">Pilih Komponen Teks:</h3>
+                        <button onclick="addRukun('Alhamdulillahilladzi hadana lihadza... (Membaca Hamdalah)', 1)" class="w-full text-left p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-teal-50 hover:border-teal-300 transition text-sm">
+                            1. "Alhamdulillahilladzi hadana lihadza..."
+                        </button>
+                        <button onclick="addRukun('Allahumma shalli ala Muhammadin wa ala alihi... (Membaca Salawat)', 2)" class="w-full text-left p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-teal-50 hover:border-teal-300 transition text-sm">
+                            2. "Allahumma shalli 'ala Muhammadin..."
+                        </button>
+                        <button onclick="addRukun('Ya ayyuhalladzina amanuttaqullaha haqqa tuqatihi... (Wasiat Taqwa)', 3)" class="w-full text-left p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-teal-50 hover:border-teal-300 transition text-sm">
+                            3. "Ya ayyuhalladzina amanuttaqullah..."
+                        </button>
+                        <button onclick="addRukun('Qalallahu Ta\'ala: Innallaha ma\'alladzinattaqaw... (Membaca Ayat Al-Qur\'an)', 4)" class="w-full text-left p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-teal-50 hover:border-teal-300 transition text-sm">
+                            4. "Qalallahu Ta'ala: Inna anzalnahu..."
+                        </button>
+                        <button onclick="addRukun('Allahummaghfir lil muslimina wal muslimat... (Mendoakan Umat Islam)', 5)" class="w-full text-left p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-teal-50 hover:border-teal-300 transition text-sm">
+                            5. "Allahummaghfir lil muslimina wal muslimat..."
+                        </button>
+                    </div>
+
+                    <!-- Selected Sequence List -->
+                    <div class="bg-slate-900 text-slate-100 p-6 rounded-2xl flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="font-bold text-emerald-400">Naskah Khutbah Terstruktur:</h3>
+                                <button onclick="resetSimulasi()" class="text-xs text-rose-400 hover:underline">Reset</button>
+                            </div>
+                            <ol id="simulasi-list" class="space-y-2 text-xs font-mono text-slate-300 list-decimal list-inside">
+                                <li class="italic text-slate-500">Belum ada rukun yang dipilih...</li>
+                            </ol>
+                        </div>
+                        <div id="simulasi-feedback" class="mt-4 p-3 rounded-xl bg-slate-800 text-xs text-slate-300">
+                            Silakan susun 5 Rukun Khutbah di atas!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 3: STRATEGI DAKWAH GEN Z -->
+        <section id="genz" class="tab-content hidden space-y-6">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                <h2 class="text-xl font-bold text-slate-800 mb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-sliders text-teal-600"></i> Analisis Penataan Pesan Dakwah untuk Gen Z
+                </h2>
+                <p class="text-slate-600 text-sm mb-6">Pilih karakteristik audience Gen Z untuk melihat rekomendasi metode dakwah yang efektif dan berorientasi Moderasi Beragama.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <button onclick="showGenZStrategy('visual')" class="p-4 border-2 border-slate-200 rounded-xl hover:border-teal-500 focus:border-teal-600 focus:bg-teal-50 transition text-left">
+                        <i class="fa-solid fa-mobile-screen-button text-2xl text-teal-600 mb-2"></i>
+                        <h4 class="font-bold text-slate-800 text-sm">Visual & Short-Form</h4>
+                        <p class="text-xs text-slate-500">Durasi perhatian singkat
